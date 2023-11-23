@@ -1,0 +1,974 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<script>
+    // Função para escolher uma cor aleatória da lista
+    function escolherCorAleatoria() {
+        // Obtém todas as células de cor disponíveis
+        var colorCells = document.querySelectorAll('.light-text');
+
+        // Lista de cores disponíveis
+        var cores = [];
+
+        // Obtém as cores da lista de células
+        colorCells.forEach(function(cell) {
+            var color = cell.style.color;
+            cores.push(color);
+        });
+
+        // Escolhe uma cor aleatória da lista
+        var corAleatoria = cores[Math.floor(Math.random() * cores.length)];
+
+        // Aplica a cor ao fundo da página
+        document.body.style.backgroundColor = corAleatoria;
+    }
+
+    // Chama a função ao carregar a página
+    window.onload = escolherCorAleatoria;
+
+    // Adiciona um ouvinte de evento para cada célula de cor
+    var colorCells = document.querySelectorAll('.light-text');
+
+    colorCells.forEach(function(cell) {
+        // Mouseover para mudar a cor do cursor
+        cell.addEventListener('mouseover', function() {
+            var color = cell.style.color;
+            changeMouseColor(color);
+        });
+        // Mouseout para restaurar a cor padrão do cursor
+        cell.addEventListener('mouseout', function() {
+            resetMouseColor();
+        });
+
+        // Click para mudar a cor de fundo da página
+        cell.addEventListener('click', function() {
+            var color = cell.style.color;
+            changeBackgroundColor(color);
+        });
+    });
+
+    // Adiciona um ouvinte de evento para cada célula de imagem
+    var imageCells = document.querySelectorAll('td img');
+
+    imageCells.forEach(function(cell) {
+        // Mouseover para mudar a cor do cursor
+        cell.addEventListener('mouseover', function() {
+            var color = cell.parentNode.previousElementSibling.style.color;
+            changeMouseColor(color);
+        });
+        // Mouseout para restaurar a cor padrão do cursor
+        cell.addEventListener('mouseout', function() {
+            resetMouseColor();
+        });
+
+        // Click para mudar a cor de fundo da página
+        cell.addEventListener('click', function() {
+            var color = cell.parentNode.previousElementSibling.style.color;
+            changeBackgroundColor(color);
+        });
+    });
+
+// Função para mudar a cor do cursor
+function changeMouseColor(color) {
+    document.body.style.cursor = `url("data:image/svg+xml,%3Csvg height='0' width='0' xmlns='http://www.w3.org/2000/svg'%3E%3C/style%3E%3C/svg%3E"), auto`;
+    document.body.style.setProperty('--cursor-color', color);
+}
+    // Função para restaurar a cor padrão do cursor
+    function resetMouseColor() {
+        document.body.style.cursor = 'auto';
+    }
+
+    // Função para mudar a cor de fundo da página
+    function changeBackgroundColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+</script>
+
+
+
+    <style>
+        body {
+            background-color: #eeeeee; /* Cor de fundo do corpo da página */
+            font-family: Arial, sans-serif;
+            letter-spacing: 1px; /* Ajuste o valor conforme necessário */
+        }
+        
+        table {
+            font-family: Arial, sans-serif;
+            letter-spacing: 1px; /* Ajuste o valor conforme necessário */
+            border-collapse: collapse;
+            width: 60%; /* Largura da tabela definida para 60% da largura da página */
+            margin: 0 auto; /* Centraliza a tabela na página */
+            background-color: #ffffff; /* Cor de fundo da tabela */
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2; /* Cor de fundo das células de cabeçalho */
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .light-text {
+            font-weight: lighter;
+            text-shadow: 0.7px 0.7px 1px #000000; /* Ajuste os valores conforme necessário */
+        }
+            /* Adiciona um estilo personalizado para a cor do cursor */
+    body {
+        cursor: url("data:image/svg+xml,%3Csvg height='0' width='0' xmlns='http://www.w3.org/2000/svg'%3E%3C/style%3E%3C/svg%3E"), auto;
+    }
+
+    body:hover {
+        cursor: url("data:image/svg+xml,%3Csvg fill='var(--cursor-color)' height='24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/svg%3E"), auto;
+    }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th style="width: 350px;"><font color="Gray"> :::::::::::::::::::: COR | HEXA | RGB :::::::::::::::::::: </font></th>
+        <th><font color="Gray"> :::::::::::::: REPRESENTAÇÃO DA COR :::::::::::::: </font></th>
+    </tr>
+
+    <tr>
+        <td style="font-size: 15px; color: #000000;" class="light-text">Black | #000000 | (0, 0, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Black.png" alt="Black" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #1c1c1c;" class="light-text">grey11 | #1c1c1c | (28, 28, 28)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_grey11.png" alt="grey11" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #363636;" class="light-text">grey21 | #363636 | (54, 54, 54)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_grey21.png" alt="grey21" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #4f4f4f;" class="light-text">grey31 | #4f4f4f | (79, 79, 79)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_grey31.png" alt="grey31" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #696969;" class="light-text">DimGray | #696969 | (105, 105, 105)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DimGray.png" alt="DimGray" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #808080;" class="light-text">Gray | #808080 | (128, 128, 128)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Gray.png" alt="Gray" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #a9a9a9;" class="light-text">DarkGray | #a9a9a9 | (169, 169, 169)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkGray.png" alt="DarkGray" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #c0c0c0;" class="light-text">Silver | #c0c0c0 | (192, 192, 192)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Silver.png" alt="Silver" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #d3d3d3;" class="light-text">LightGrey | #d3d3d3 | (211, 211, 211)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightGrey.png" alt="LightGrey" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #dcdcdc;" class="light-text">Gainsboro | #dcdcdc | (220, 220, 220)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Gainsboro.png" alt="Gainsboro" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #6a5acd;" class="light-text">SlateBlue | #6a5acd | (106, 90, 205)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SlateBlue.png" alt="SlateBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #836fff;" class="light-text">SlateBlue1 | #836fff | (131, 111, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SlateBlue1.png" alt="SlateBlue1" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #6959cd;" class="light-text">SlateBlue3 | #6959cd | (105, 89, 205)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SlateBlue3.png" alt="SlateBlue3" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #483d8b;" class="light-text">DarkSlateBlue | #483d8b | (72, 61, 139)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkSlateBlue.png" alt="DarkSlateBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #191970;" class="light-text">MidnightBlue | #191970 | (25, 25, 112)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_MidnightBlue.png" alt="MidnightBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #000080;" class="light-text">Navy | #000080 | (0, 0, 128)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Navy.png" alt="Navy" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #00008b;" class="light-text">DarkBlue | #00008b | (0, 0, 139)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkBlue.png" alt="DarkBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #0000cd;" class="light-text">MediumBlue | #0000cd | (0, 0, 205)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_MediumBlue.png" alt="MediumBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #0000ff;" class="light-text">Blue | #0000ff | (0, 0, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Blue.png" alt="Blue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #6495ed;" class="light-text">CornflowerBlue | #6495ed | (100, 149, 237)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_CornflowerBlue.png" alt="CornflowerBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #4169e1;" class="light-text">RoyalBlue | #4169e1 | (65, 105, 225)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_RoyalBlue.png" alt="RoyalBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #1e90ff;" class="light-text">DodgerBlue | #1e90ff | (30, 144, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DodgerBlue.png" alt="DodgerBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #00bfff;" class="light-text">DeepSkyBlue | #00bfff | (0, 191, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DeepSkyBlue.png" alt="DeepSkyBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #87cefa;" class="light-text">LightSkyBlue | #87cefa | (135, 206, 250)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightSkyBlue.png" alt="LightSkyBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #87ceeb;" class="light-text">SkyBlue | #87ceeb | (135, 206, 235)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SkyBlue.png" alt="SkyBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #add8e6;" class="light-text">LightBlue | #add8e6 | (173, 216, 230)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightBlue.png" alt="LightBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #4682b4;" class="light-text">SteelBlue | #4682b4 | (70, 130, 180)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SteelBlue.png" alt="SteelBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #b0c4de;" class="light-text">LightSteelBlue | #b0c4de | (176, 196, 222)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightSteelBlue.png" alt="LightSteelBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #708090;" class="light-text">SlateGray | #708090 | (112, 128, 144)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SlateGray.png" alt="SlateGray" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #778899;" class="light-text">LightSlateGray | #778899 | (119, 136, 153)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightSlateGray.png" alt="LightSlateGray" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #00ffff;" class="light-text">Aqua ou Cyan | #00ffff | (0, 255, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Aqua ou Cyan.png" alt="Aqua ou Cyan" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #00ced1;" class="light-text">DarkTurquoise | #00ced1 | (0, 206, 209)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkTurquoise.png" alt="DarkTurquoise" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #40e0d0;" class="light-text">Turquoise | #40e0d0 | (64, 224, 208)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Turquoise.png" alt="Turquoise" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #48d1cc;" class="light-text">MediumTurquoise | #48d1cc | (72, 209, 204)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_MediumTurquoise.png" alt="MediumTurquoise" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #20b2aa;" class="light-text">LightSeaGreen | #20b2aa | (32, 178, 170)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightSeaGreen.png" alt="LightSeaGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #008b8b;" class="light-text">DarkCyan | #008b8b | (0, 139, 139)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkCyan.png" alt="DarkCyan" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #008080;" class="light-text">Teal | #008080 | (0, 128, 128)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Teal.png" alt="Teal" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #7fffd4;" class="light-text">Aquamarine | #7fffd4 | (127, 255, 212)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Aquamarine.png" alt="Aquamarine" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #66cdaa;" class="light-text">MediumAquamarine | #66cdaa | (102, 205, 170)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_MediumAquamarine.png" alt="MediumAquamarine" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #5f9ea0;" class="light-text">CadetBlue | #5f9ea0 | (95, 158, 160)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_CadetBlue.png" alt="CadetBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #2f4f4f;" class="light-text">DarkSlateGray | #2f4f4f | (47, 79, 79)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkSlateGray.png" alt="DarkSlateGray" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #00fa9a;" class="light-text">MediumSpringGreen | #00fa9a | (0, 250, 154)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_MediumSpringGreen.png" alt="MediumSpringGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #00ff7f;" class="light-text">SpringGreen | #00ff7f | (0, 255, 127)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SpringGreen.png" alt="SpringGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #98fb98;" class="light-text">PaleGreen | #98fb98 | (152, 251, 152)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_PaleGreen.png" alt="PaleGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #90ee90;" class="light-text">LightGreen | #90ee90 | (144, 238, 144)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightGreen.png" alt="LightGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #8fbc8f;" class="light-text">DarkSeaGreen | #8fbc8f | (143, 188, 143)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkSeaGreen.png" alt="DarkSeaGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #3cb371;" class="light-text">MediumSeaGreen | #3cb371 | (60, 179, 113)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_MediumSeaGreen.png" alt="MediumSeaGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #2e8b57;" class="light-text">SeaGreen | #2e8b57 | (46, 139, 87)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SeaGreen.png" alt="SeaGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #006400;" class="light-text">DarkGreen | #006400 | (0, 100, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkGreen.png" alt="DarkGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #008000;" class="light-text">Green | #008000 | (0, 128, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Green.png" alt="Green" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #228b22;" class="light-text">ForestGreen | #228b22 | (34, 139, 34)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_ForestGreen.png" alt="ForestGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #32cd32;" class="light-text">LimeGreen | #32cd32 | (50, 205, 50)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LimeGreen.png" alt="LimeGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #00ff00;" class="light-text">Lime | #00ff00 | (0, 255, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Lime.png" alt="Lime" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #7cfc00;" class="light-text">LawnGreen | #7cfc00 | (124, 252, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LawnGreen.png" alt="LawnGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #7fff00;" class="light-text">Chartreuse | #7fff00 | (127, 255, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Chartreuse.png" alt="Chartreuse" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #adff2f;" class="light-text">GreenYellow | #adff2f | (173, 255, 47)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_GreenYellow.png" alt="GreenYellow" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #9acd32;" class="light-text">YellowGreen | #9acd32 | (154, 205, 50)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_YellowGreen.png" alt="YellowGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #6b8e23;" class="light-text">OliveDrab | #6b8e23 | (107, 142, 35)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_OliveDrab.png" alt="OliveDrab" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #556b2f;" class="light-text">DarkOliveGreen | #556b2f | (85, 107, 47)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkOliveGreen.png" alt="DarkOliveGreen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #808000;" class="light-text">Olive | #808000 | (128, 128, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Olive.png" alt="Olive" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #bdb76b;" class="light-text">DarkKhaki | #bdb76b | (189, 183, 107)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkKhaki.png" alt="DarkKhaki" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #daa520;" class="light-text">Goldenrod | #daa520 | (218, 165, 32)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Goldenrod.png" alt="Goldenrod" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #b8860b;" class="light-text">DarkGoldenrod | #b8860b | (184, 134, 11)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkGoldenrod.png" alt="DarkGoldenrod" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #8b4513;" class="light-text">SaddleBrown | #8b4513 | (139, 69, 19)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SaddleBrown.png" alt="SaddleBrown" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #a0522d;" class="light-text">Sienna | #a0522d | (160, 82, 45)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Sienna.png" alt="Sienna" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #bc8f8f;" class="light-text">RosyBrown | #bc8f8f | (188, 143, 143)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_RosyBrown.png" alt="RosyBrown" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #cd853f;" class="light-text">Peru | #cd853f | (205, 133, 63)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Peru.png" alt="Peru" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #d2691e;" class="light-text">Chocolate | #d2691e | (210, 105, 30)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Chocolate.png" alt="Chocolate" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f4a460;" class="light-text">SandyBrown | #f4a460 | (244, 164, 96)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_SandyBrown.png" alt="SandyBrown" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffdead;" class="light-text">NavajoWhite | #ffdead | (255, 222, 173)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_NavajoWhite.png" alt="NavajoWhite" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #da70d6;" class="light-text">Orchid | #da70d6 | (218, 112, 214)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Orchid.png" alt="Orchid" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #dda0dd;" class="light-text">Plum | #dda0dd | (221, 160, 221)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Plum.png" alt="Plum" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #c71585;" class="light-text">MediumVioletRed | #c71585 | (199, 21, 133)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_MediumVioletRed.png" alt="MediumVioletRed" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ff00ff;" class="light-text">Magenta | #ff00ff | (255, 0, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Magenta.png" alt="Magenta" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ff1493;" class="light-text">DeepPink | #ff1493 | (255, 20, 147)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DeepPink.png" alt="DeepPink" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ff69b4;" class="light-text">HotPink | #ff69b4 | (255, 105, 180)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_HotPink.png" alt="HotPink" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #db7093;" class="light-text">PaleVioletRed | #db7093 | (219, 112, 147)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_PaleVioletRed.png" alt="PaleVioletRed" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffb6c1;" class="light-text">LightPink | #ffb6c1 | (255, 182, 193)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightPink.png" alt="LightPink" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffc0cb;" class="light-text">Pink | #ffc0cb | (255, 192, 203)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Pink.png" alt="Pink" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f08080;" class="light-text">LightCoral | #f08080 | (240, 128, 128)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightCoral.png" alt="LightCoral" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #cd5c5c;" class="light-text">IndianRed | #cd5c5c | (205, 92, 92)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_IndianRed.png" alt="IndianRed" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #dc143c;" class="light-text">Crimson | #dc143c | (220, 20, 60)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Crimson.png" alt="Crimson" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #800000;" class="light-text">Maroon | #800000 | (128, 0, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Maroon.png" alt="Maroon" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #8b0000;" class="light-text">DarkRed | #8b0000 | (139, 0, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkRed.png" alt="DarkRed" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #b22222;" class="light-text">FireBrick | #b22222 | (178, 34, 34)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_FireBrick.png" alt="FireBrick" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #a52a2a;" class="light-text">Brown | #a52a2a | (165, 42, 42)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Brown.png" alt="Brown" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fa8072;" class="light-text">Salmon | #fa8072 | (250, 128, 114)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Salmon.png" alt="Salmon" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #e9967a;" class="light-text">DarkSalmon | #e9967a | (233, 150, 122)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkSalmon.png" alt="DarkSalmon" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffa07a;" class="light-text">LightSalmon | #ffa07a | (255, 160, 122)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightSalmon.png" alt="LightSalmon" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ff7f50;" class="light-text">Coral | #ff7f50 | (255, 127, 80)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Coral.png" alt="Coral" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ff6347;" class="light-text">Tomato | #ff6347 | (255, 99, 71)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Tomato.png" alt="Tomato" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ff0000;" class="light-text">Red | #ff0000 | (255, 0, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Red.png" alt="Red" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ff4500;" class="light-text">OrangeRed | #ff4500 | (255, 69, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_OrangeRed.png" alt="OrangeRed" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ff8c00;" class="light-text">DarkOrange | #ff8c00 | (255, 140, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_DarkOrange.png" alt="DarkOrange" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffa500;" class="light-text">Orange | #ffa500 | (255, 165, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Orange.png" alt="Orange" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffd700;" class="light-text">Gold | #ffd700 | (255, 215, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Gold.png" alt="Gold" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffff00;" class="light-text">Yellow | #ffff00 | (255, 255, 0)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Yellow.png" alt="Yellow" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f0e68c;" class="light-text">Khaki | #f0e68c | (240, 230, 140)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Khaki.png" alt="Khaki" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f0f8ff;" class="light-text">AliceBlue | #f0f8ff | (240, 248, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_AliceBlue.png" alt="AliceBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f8f8ff;" class="light-text">GhostWhite | #f8f8ff | (248, 248, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_GhostWhite.png" alt="GhostWhite" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fffafa;" class="light-text">Snow | #fffafa | (255, 250, 250)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Snow.png" alt="Snow" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fff5ee;" class="light-text">Seashell | #fff5ee | (255, 245, 238)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Seashell.png" alt="Seashell" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fffaf0;" class="light-text">FloralWhite | #fffaf0 | (255, 250, 240)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_FloralWhite.png" alt="FloralWhite" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f5f5f5;" class="light-text">WhiteSmoke | #f5f5f5 | (245, 245, 245)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_WhiteSmoke.png" alt="WhiteSmoke" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f5f5dc;" class="light-text">Beige | #f5f5dc | (245, 245, 220)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Beige.png" alt="Beige" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fdf5e6;" class="light-text">OldLace | #fdf5e6 | (253, 245, 230)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_OldLace.png" alt="OldLace" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fffff0;" class="light-text">Ivory | #fffff0 | (255, 255, 240)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Ivory.png" alt="Ivory" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #faf0e6;" class="light-text">Linen | #faf0e6 | (250, 240, 230)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Linen.png" alt="Linen" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fff8dc;" class="light-text">Cornsilk | #fff8dc | (255, 248, 220)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Cornsilk.png" alt="Cornsilk" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #faebd7;" class="light-text">AntiqueWhite | #faebd7 | (250, 235, 215)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_AntiqueWhite.png" alt="AntiqueWhite" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffebcd;" class="light-text">BlanchedAlmond | #ffebcd | (255, 235, 205)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_BlanchedAlmond.png" alt="BlanchedAlmond" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffe4c4;" class="light-text">Bisque | #ffe4c4 | (255, 228, 196)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Bisque.png" alt="Bisque" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffffe0;" class="light-text">LightYellow | #ffffe0 | (255, 255, 224)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightYellow.png" alt="LightYellow" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fffacd;" class="light-text">LemonChiffon | #fffacd | (255, 250, 205)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LemonChiffon.png" alt="LemonChiffon" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fafad2;" class="light-text">LightGoldenrodYellow | #fafad2 | (250, 250, 210)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightGoldenrodYellow.png" alt="LightGoldenrodYellow" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffefd5;" class="light-text">PapayaWhip | #ffefd5 | (255, 239, 213)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_PapayaWhip.png" alt="PapayaWhip" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffdab9;" class="light-text">PeachPuff | #ffdab9 | (255, 218, 185)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_PeachPuff.png" alt="PeachPuff" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffe4b5;" class="light-text">Moccasin | #ffe4b5 | (255, 228, 181)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Moccasin.png" alt="Moccasin" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #eee8aa;" class="light-text">PaleGoldenrod | #eee8aa | (238, 232, 170)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_PaleGoldenrod.png" alt="PaleGoldenrod" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffe4e1;" class="light-text">MistyRose | #ffe4e1 | (255, 228, 225)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_MistyRose.png" alt="MistyRose" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #fff0f5;" class="light-text">LavenderBlush | #fff0f5 | (255, 240, 245)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LavenderBlush.png" alt="LavenderBlush" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #e6e6fa;" class="light-text">Lavender | #e6e6fa | (230, 230, 250)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Lavender.png" alt="Lavender" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #d8bfd8;" class="light-text">Thistle | #d8bfd8 | (216, 191, 216)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Thistle.png" alt="Thistle" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f0ffff;" class="light-text">Azure | #f0ffff | (240, 255, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Azure.png" alt="Azure" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #e0ffff;" class="light-text">LightCyan | #e0ffff | (224, 255, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_LightCyan.png" alt="LightCyan" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #b0e0e6;" class="light-text">PowderBlue | #b0e0e6 | (176, 224, 230)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_PowderBlue.png" alt="PowderBlue" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #afeeee;" class="light-text">PaleTurquoise | #afeeee | (175, 238, 238)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_PaleTurquoise.png" alt="PaleTurquoise" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f0fff0;" class="light-text">Honeydew | #f0fff0 | (240, 255, 240)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_Honeydew.png" alt="Honeydew" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #f5fffa;" class="light-text">MintCream | #f5fffa | (245, 255, 250)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_MintCream.png" alt="MintCream" height="20"></td>
+    </tr>
+    
+
+    <tr>
+        <td style="font-size: 15px; color: #ffffff;" class="light-text">White | #ffffff | (255, 255, 255)</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_White.png" alt="White" height="20"></td>
+    </tr>
+    
+
+</table>
+<!-- Adicione o script JavaScript -->
+<script>
+    // Adicione um ouvinte de evento para cada célula de cor
+    var colorCells = document.querySelectorAll('.light-text');
+
+    colorCells.forEach(function(cell) {
+        // Mouseover para mudar a cor do cursor
+        cell.addEventListener('mouseover', function() {
+            var color = cell.style.color;
+            changeMouseColor(color);
+        });
+
+        // Click para mudar a cor de fundo da página
+        cell.addEventListener('click', function() {
+            var color = cell.style.color;
+            changeBackgroundColor(color);
+        });
+    });
+
+    // Adicione um ouvinte de evento para cada célula de imagem
+    var imageCells = document.querySelectorAll('td img');
+
+    imageCells.forEach(function(cell) {
+        // Mouseover para mudar a cor do cursor
+        cell.addEventListener('mouseover', function() {
+            var color = cell.parentNode.previousElementSibling.style.color;
+            changeMouseColor(color);
+        });
+        // Mouseout para restaurar a cor padrão do cursor
+        cell.addEventListener('mouseout', function() {
+            resetMouseColor();
+        });
+        // Click para mudar a cor de fundo da página
+        cell.addEventListener('click', function() {
+            var color = cell.parentNode.previousElementSibling.style.color;
+            changeBackgroundColor(color);
+        });
+    });
+
+    // Função para mudar a cor do cursor
+    function changeMouseColor(color) {
+        document.body.style.cursor = `url("data:image/svg+xml,%3Csvg fill='${color}' height='24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/svg%3E"), auto`;
+    }
+
+    // Função para mudar a cor de fundo da página
+    function changeBackgroundColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+</script>
+</body>
+</html>
