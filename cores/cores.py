@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from colorama import init, Fore
-from rich.console import Console
+from colorama import init
+# from rich.console import Console
 from PIL import Image, ImageDraw
 import os
 import cores_unificadas
@@ -194,8 +194,8 @@ function changeMouseColor(color) {
 
 <table>
     <tr>
-        <th style="width: 350px;"><font color="Gray"> :::::::::::::::::::: COR | HEXA | RGB :::::::::::::::::::: </font></th>
-        <th><font color="Gray"> :::::::::::::: REPRESENTAÇÃO DA COR :::::::::::::: </font></th>
+        <th style="width: 350px;"><font color="Gray"> ::::::::::::::::::: COR | HEXA | RGB ::::::::::::::::::: </font></th>
+        <th><font color="Gray"> ::::::::::::: REPRESENTAÇÃO DA COR ::::::::::::: </font></th>
     </tr>
 """
 
