@@ -1,5 +1,5 @@
 
-### [Click here](https://alexandrelorena.github.io/index.html#home) to access my online resume.
+### [Click here](https://alexandrelorena.github.io/index.html) to access my online resume.
 
 > # Some projects in Python language 
 >### Course Projects "Programação em Python do básico ao avançado" - Geek University | Udemy
