@@ -171,10 +171,11 @@ html_content = """<!DOCTYPE html>
 </head>
 <body>
 
-    <table>
+    <table style="width: 700px;">
         <tr> 
             <th style=" font-size: 12px;" colspan="2">
-                <div style="display: inline-block;"> ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: PALETA DE CORES :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: </div>
+                <div style="display: inline-block;">:::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+                PALETA DE CORES ::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
             </th>
         </tr>
 """
@@ -187,9 +188,10 @@ for nome_cor, cor_info in cores_unificadas.cores_unificadas.items():
     # Adicione a classe 'light-text' para adicionar uma borda ao texto
     html_content += f"""
     <tr>
-        <td style="font-size: 15px; color: {cor_hex};" class="light-text">{nome_cor} | {cor_hex} | {cor_rgb}</td>
-        <td style="width: 450px; height: 20px;"><img src="images/imagem_{nome_cor}.png" alt="{nome_cor}" height="20"></td>
+        <td style="width: 350px; font-size: 13px; color: {cor_hex};" class="light-text">{nome_cor} | {cor_hex} | {cor_rgb}</td>
+        <td style="width: 350px; height: 20px;"><img src="images/imagem_{nome_cor}.png" alt="{nome_cor}" height="20"></td>
     </tr>
+
 """
 
 # Fecha o HTML
@@ -197,6 +199,7 @@ html_content += """
     </table>
     <!-- Adicione o script JavaScript -->
     <script>
+
         // Adicione um ouvinte de evento para cada célula de cor
         var colorCells = document.querySelectorAll('.light-text');
 
