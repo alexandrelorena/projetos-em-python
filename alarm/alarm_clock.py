@@ -120,3 +120,4 @@ try:
 
 except KeyboardInterrupt:
     print("Programa interrompido pelo usuário.")
+
